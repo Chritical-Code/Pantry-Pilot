@@ -22,15 +22,23 @@ public class Manage extends CPage {
         bManage.addActionListener(e -> cardLayout.show(mainPanel, CPage.p_home));
         f_return.add(bManage);
 
-
-
         //flow: table
         CFlow f_table = new CFlow();
         add(f_table);
+        f_table.setPreferredSize(new Dimension(600, 200));
+        f_table.add(createTable());
 
+        //flow: bottom space
+        CFlow f_space = new CFlow();
+        add(f_space);
+        CLabel space = new CLabel("space");
+        f_space.add(space);
+    }
+
+    //Create table
+    private JScrollPane createTable(){
         //read in product data
         ArrayList<Product> products = Product.getProducts();
-        System.out.println(products.size() + " products found");
 
         // Define column names and data
         String[] columnNames = {"id", "brand", "name", "category"};
@@ -47,14 +55,8 @@ public class Manage extends CPage {
 
         // Add the JTable to a JScrollPane for scroll functionality
         JScrollPane scrollPane = new JScrollPane(table);
-        f_table.add(scrollPane);
+        scrollPane.setPreferredSize(new Dimension(550, 200));
 
-
-
-        //flow: bottom space
-        CFlow f_space = new CFlow();
-        add(f_space);
-        CLabel space = new CLabel("space");
-        f_space.add(space);
+        return scrollPane;
     }
 }
