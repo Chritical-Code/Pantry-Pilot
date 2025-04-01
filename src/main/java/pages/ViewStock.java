@@ -1,9 +1,7 @@
 package pages;
 
-import gui.CButton;
-import gui.CFlow;
-import gui.CLabel;
-import gui.CPage;
+import gui.*;
+import model.*;
 
 public class ViewStock extends CPage {
     public ViewStock(){
