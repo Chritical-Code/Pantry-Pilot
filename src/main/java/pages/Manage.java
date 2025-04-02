@@ -28,6 +28,9 @@ public class Manage extends CPage {
         f_table.setPreferredSize(new Dimension(600, 200));
         f_table.add(createTable());
 
+        //flow: create item
+        add(createAddSection());
+
         //flow: bottom space
         CFlow f_space = new CFlow();
         add(f_space);
@@ -58,5 +61,31 @@ public class Manage extends CPage {
         scrollPane.setPreferredSize(new Dimension(550, 200));
 
         return scrollPane;
+    }
+
+    //create inputs
+    private CFlow createAddSection(){
+        //create flow
+        CFlow f_create = new CFlow();
+
+        //brand
+        CBoxLabel brandBox = new CBoxLabel("Brand:");
+        f_create.add(brandBox);
+        JTextField brand = new JTextField(10);
+        brandBox.add(brand);
+
+        //name
+        CBoxLabel nameBox = new CBoxLabel("Name:");
+        f_create.add(nameBox);
+        JTextField name = new JTextField(10);
+        nameBox.add(name);
+
+        //category
+        CBoxLabel categoryBox = new CBoxLabel("Category:");
+        f_create.add(categoryBox);
+        JTextField category = new JTextField(10);
+        categoryBox.add(category);
+
+        return  f_create;
     }
 }
