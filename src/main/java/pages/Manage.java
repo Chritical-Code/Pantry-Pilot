@@ -86,6 +86,23 @@ public class Manage extends CPage {
         JTextField category = new JTextField(10);
         categoryBox.add(category);
 
+        //insert button
+        CButton b_insert = new CButton("Add");
+        f_create.add(b_insert);
+        b_insert.addActionListener(e -> insertData(brand.getText(), name.getText(), category.getText()));
+
         return  f_create;
+    }
+
+    //insert data
+    private void insertData(String brand, String name, String category){
+        //turn the text into an object
+        Product product = new Product();
+        product.brand = brand;
+        product.name = name;
+        product.category = category;
+
+        //send the object to the model function
+        Product.insertProduct(product);
     }
 }

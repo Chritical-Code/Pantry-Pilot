@@ -39,6 +39,16 @@ public class DBManager {
         }
     }
 
+    //insert
+    public void insert(String statement){
+        try{
+            s = c.createStatement();
+            s.executeUpdate(statement);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     //close
     public void close(){
         try {

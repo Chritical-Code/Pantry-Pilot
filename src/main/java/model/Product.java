@@ -38,4 +38,15 @@ public class Product {
         dbm.close();
         return products;
     }
+
+    //insert a product into the database
+    public static void insertProduct(Product product){
+        //create the statement
+        DBManager dbm = new DBManager();
+        String statement = String.format("INSERT INTO Product (brand, name, category) VALUES ('%s', '%s', '%s')", product.brand, product.name, product.category);
+
+        //send the statement and close
+        dbm.insert(statement);
+        dbm.close();
+    }
 }
