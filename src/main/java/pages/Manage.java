@@ -3,6 +3,8 @@ package pages;
 import gui.*;
 import model.*;
 import javax.swing.*;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.util.ArrayList;
@@ -11,6 +13,7 @@ import java.util.Collections;
 
 public class Manage extends CPage {
     private CFlow f_table;
+    private JTable table;
     JTextField id, brand, name, category;
 
 
@@ -71,8 +74,14 @@ public class Manage extends CPage {
                 return false;
             }
         };
-        JTable table = new JTable(tableModel);
+        table = new JTable(tableModel);
+
+        //set some table settings *****may want to add to my own CTable*********
         table.getTableHeader().setReorderingAllowed(false);
+        table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+
+        //add select function
+        table.getSelectionModel().addListSelectionListener(e -> selectEntry(e));
 
         // Add the JTable to a JScrollPane for scroll functionality
         JScrollPane scrollPane = new JScrollPane(table);
@@ -171,7 +180,11 @@ public class Manage extends CPage {
 
     //clear
     private void clearData(){
-        System.out.println("Clear");
+        table.clearSelection();
+        id.setText("");
+        brand.setText("");
+        name.setText("");
+        category.setText("");
     }
 
     //update
@@ -182,5 +195,19 @@ public class Manage extends CPage {
     //delete
     private void deleteEntry(){
         System.out.println("Delete");
+    }
+
+    //select
+    private void selectEntry(ListSelectionEvent e){
+        if(!e.getValueIsAdjusting()){
+            int row = table.getSelectedRow();
+            if(row != -1){
+                //put data into text input
+                id.setText(table.getValueAt(row, 0).toString());
+                brand.setText((String) table.getValueAt(row, 1));
+                name.setText((String) table.getValueAt(row, 2));
+                category.setText((String) table.getValueAt(row, 3));
+            }
+        }
     }
 }
