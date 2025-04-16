@@ -6,8 +6,14 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Collections;
+
 
 public class Manage extends CPage {
+    private CFlow f_table;
+    JTextField id, brand, name, category;
+
+
     public Manage(){
         //flow: title
         CFlow f_title = new CFlow();
@@ -23,13 +29,16 @@ public class Manage extends CPage {
         f_return.add(bManage);
 
         //flow: table
-        CFlow f_table = new CFlow();
+        f_table = new CFlow();
         add(f_table);
         f_table.setPreferredSize(new Dimension(600, 200));
         f_table.add(createTable());
 
-        //flow: create item
-        add(createAddSection());
+        //flow: text input
+        add(textInputSection());
+
+        //flow: button input
+        add(buttonInputSection());
 
         //flow: bottom space
         CFlow f_space = new CFlow();
@@ -38,10 +47,12 @@ public class Manage extends CPage {
         f_space.add(space);
     }
 
+    //functions
     //Create table
     private JScrollPane createTable(){
         //read in product data
         ArrayList<Product> products = Product.getProducts();
+        Collections.reverse(products);
 
         // Define column names and data
         String[] columnNames = {"id", "brand", "name", "category"};
@@ -53,8 +64,15 @@ public class Manage extends CPage {
         Object[][] data = dataList.toArray(new Object[0][]);
 
         // Create a JTable with the data and column names
-        DefaultTableModel tableModel = new DefaultTableModel(data, columnNames);
+        DefaultTableModel tableModel = new DefaultTableModel(data, columnNames){
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                // Disable editing for all cells
+                return false;
+            }
+        };
         JTable table = new JTable(tableModel);
+        table.getTableHeader().setReorderingAllowed(false);
 
         // Add the JTable to a JScrollPane for scroll functionality
         JScrollPane scrollPane = new JScrollPane(table);
@@ -63,39 +81,81 @@ public class Manage extends CPage {
         return scrollPane;
     }
 
-    //create inputs
-    private CFlow createAddSection(){
+    //create input section
+    private CFlow textInputSection(){
         //create flow
-        CFlow f_create = new CFlow();
+        CFlow f_textInput = new CFlow();
+
+        //clear button
+        CButton b_clear = new CButton("Clear");
+        b_clear.addActionListener(e -> clearData());
+        f_textInput.add(b_clear);
+
+        //id
+        CBoxLabel idBox = new CBoxLabel("ID:");
+        f_textInput.add(idBox);
+        id = new JTextField(5);
+        id.setEditable(false);
+        idBox.add(id);
 
         //brand
         CBoxLabel brandBox = new CBoxLabel("Brand:");
-        f_create.add(brandBox);
-        JTextField brand = new JTextField(10);
+        f_textInput.add(brandBox);
+        brand = new JTextField(10);
         brandBox.add(brand);
 
         //name
         CBoxLabel nameBox = new CBoxLabel("Name:");
-        f_create.add(nameBox);
-        JTextField name = new JTextField(10);
+        f_textInput.add(nameBox);
+        name = new JTextField(10);
         nameBox.add(name);
 
         //category
         CBoxLabel categoryBox = new CBoxLabel("Category:");
-        f_create.add(categoryBox);
-        JTextField category = new JTextField(10);
+        f_textInput.add(categoryBox);
+        category = new JTextField(10);
         categoryBox.add(category);
+
+        return  f_textInput;
+    }
+
+    //create button input section
+    private  CFlow buttonInputSection(){
+        //create flow
+        CFlow f_buttonInput = new CFlow();
 
         //insert button
         CButton b_insert = new CButton("Add");
-        f_create.add(b_insert);
-        b_insert.addActionListener(e -> insertData(brand.getText(), name.getText(), category.getText()));
+        b_insert.addActionListener(e -> insertEntry(brand.getText(), name.getText(), category.getText()));
+        f_buttonInput.add(b_insert);
 
-        return  f_create;
+        //update button
+        CButton b_update = new CButton("Update");
+        b_update.addActionListener(e -> updateEntry());
+        f_buttonInput.add(b_update);
+
+        //delete button
+        CButton b_delete = new CButton("Delete");
+        b_delete.addActionListener(e -> deleteEntry());
+        f_buttonInput.add(b_delete);
+
+        //return flow
+        return  f_buttonInput;
     }
 
+    //refresh table
+    private void refreshTable(){
+        f_table.removeAll();
+        JScrollPane scrollPane = createTable();
+        f_table.add(scrollPane);
+        f_table.revalidate();
+        f_table.repaint();
+    }
+
+
+    //button functions
     //insert data
-    private void insertData(String brand, String name, String category){
+    private void insertEntry(String brand, String name, String category){
         //turn the text into an object
         Product product = new Product();
         product.brand = brand;
@@ -104,5 +164,23 @@ public class Manage extends CPage {
 
         //send the object to the model function
         Product.insertProduct(product);
+
+        //refresh table
+        refreshTable();
+    }
+
+    //clear
+    private void clearData(){
+        System.out.println("Clear");
+    }
+
+    //update
+    private void updateEntry(){
+        System.out.println("Update");
+    }
+
+    //delete
+    private void deleteEntry(){
+        System.out.println("Delete");
     }
 }

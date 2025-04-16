@@ -4,6 +4,9 @@ import gui.CPage;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 //This is the base upon which pages are placed
 //Does not extend CPage
@@ -40,5 +43,14 @@ public class Base {
 
         //set default page
         cardLayout.show(mainPanel, "Home");
+
+        // Add a KeyListener to the panel
+        frame.setFocusable(true); // Make sure the panel can receive key events
+        frame.addKeyListener(new KeyAdapter() {
+            public void keyPressed(KeyEvent e) {
+                // This method is called when a key is pressed
+                System.out.println("Key Pressed: " + e.getKeyCode());
+            }
+        });
     }
 }
