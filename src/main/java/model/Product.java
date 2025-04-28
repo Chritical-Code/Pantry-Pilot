@@ -49,4 +49,14 @@ public class Product {
         dbm.insert(statement);
         dbm.close();
     }
+
+    //delete a product from the database
+    public static void deleteProduct(int inID){
+        //create the statement
+        DBManager dbm = new DBManager();
+        String statement = String.format("DELETE FROM Product WHERE id = %d", inID);
+
+        //send the statement and close
+        dbm.delete(statement);
+    }
 }

@@ -9,6 +9,7 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Objects;
 
 
 public class Manage extends CPage {
@@ -135,7 +136,7 @@ public class Manage extends CPage {
 
         //insert button
         CButton b_insert = new CButton("Add");
-        b_insert.addActionListener(e -> insertEntry(brand.getText(), name.getText(), category.getText()));
+        b_insert.addActionListener(e -> insertEntry());
         f_buttonInput.add(b_insert);
 
         //update button
@@ -164,12 +165,12 @@ public class Manage extends CPage {
 
     //button functions
     //insert data
-    private void insertEntry(String brand, String name, String category){
+    private void insertEntry(){
         //turn the text into an object
         Product product = new Product();
-        product.brand = brand;
-        product.name = name;
-        product.category = category;
+        product.brand = brand.getText();
+        product.name = name.getText();
+        product.category = category.getText();
 
         //send the object to the model function
         Product.insertProduct(product);
@@ -194,7 +195,20 @@ public class Manage extends CPage {
 
     //delete
     private void deleteEntry(){
-        System.out.println("Delete");
+        //check if empty
+        if(Objects.equals(id.getText(), "")){
+            return;
+        }
+        else{
+            //send the id to the delete function
+            Product.deleteProduct(Integer.parseInt(id.getText()));
+
+            //refresh table
+            refreshTable();
+
+            //clear selection
+            clearData();
+        }
     }
 
     //select
