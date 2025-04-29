@@ -15,7 +15,7 @@ public class Item {
         //send the SELECT statement
         DBManager dbm = new DBManager();
         String statement = "SELECT * FROM item";
-        dbm.select(statement);
+        dbm.executeQuery(statement);
 
         //make object list from ResultSet
         ArrayList<Item> items = new ArrayList<>();

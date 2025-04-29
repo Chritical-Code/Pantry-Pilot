@@ -1,7 +1,6 @@
 package model;
 
 import db.DBManager;
-import org.sqlite.core.DB;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -14,11 +13,11 @@ public class Product {
 
     //functions
     //return full product list
-    public static ArrayList<Product> getProducts(){
+    public static ArrayList<Product> readProducts(){
         //send the SELECT statement
         DBManager dbm = new DBManager();
         String statement = "SELECT * FROM Product";
-        dbm.select(statement);
+        dbm.executeQuery(statement);
 
         //make object list from ResultSet
         ArrayList<Product> products = new ArrayList<>();
@@ -41,34 +40,64 @@ public class Product {
     }
 
     //insert a product into the database
-    public static void insertProduct(Product product){
-        //create the statement
+    public static void createProduct(Product product){
+        //create the sql
         DBManager dbm = new DBManager();
-        String statement = String.format("INSERT INTO Product (brand, name, category) VALUES ('%s', '%s', '%s')", product.brand, product.name, product.category);
+        String sql = "INSERT INTO Product (brand, name, category) VALUES (?, ?, ?)";
 
-        //send the statement and close
-        dbm.insert(statement);
+        //prepare and execute
+        try{
+            dbm.ps = dbm.c.prepareStatement(sql);
+            dbm.ps.setString(1, product.brand);
+            dbm.ps.setString(2, product.name);
+            dbm.ps.setString(3, product.category);
+            dbm.ps.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        //close
         dbm.close();
     }
 
     //update a product in the database
     public static void updateProduct(Product product){
-        //create the statement
+        //create the sql
         DBManager dbm = new DBManager();
-        String statement = String.format("UPDATE Product SET brand = '%s', name = '%s', category = '%s' WHERE id = %d", product.brand, product.name, product.category, product.id);
+        String sql = "UPDATE Product SET brand = ?, name = ?, category = ? WHERE id = ?";
 
-        //send the statement and close
-        dbm.insert(statement);
+        //prepare and execute
+        try{
+            dbm.ps = dbm.c.prepareStatement(sql);
+            dbm.ps.setString(1, product.brand);
+            dbm.ps.setString(2, product.name);
+            dbm.ps.setString(3, product.category);
+            dbm.ps.setInt(4, product.id);
+            dbm.ps.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        //close
         dbm.close();
     }
 
     //delete a product from the database
     public static void deleteProduct(int inID){
-        //create the statement
+        //create the sql
         DBManager dbm = new DBManager();
-        String statement = String.format("DELETE FROM Product WHERE id = %d", inID);
+        String sql = "DELETE FROM Product WHERE id = ?";
 
-        //send the statement and close
-        dbm.delete(statement);
+        //prepare and execute
+        try{
+            dbm.ps = dbm.c.prepareStatement(sql);
+            dbm.ps.setInt(1, inID);
+            dbm.ps.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        //close
+        dbm.close();
     }
 }

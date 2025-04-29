@@ -7,6 +7,7 @@ public class DBManager {
     public Connection c = null;
     public Statement s = null;
     public ResultSet r = null;
+    public PreparedStatement ps = null;
 
     //constructor
     public DBManager(){
@@ -19,8 +20,9 @@ public class DBManager {
     }
 
     //functions
-    //select
-    public void select(String statement){
+
+    //read
+    public void executeQuery(String statement){
         try{
             s = c.createStatement();
             r = s.executeQuery(statement);
@@ -30,27 +32,7 @@ public class DBManager {
     }
 
     //update
-    public void update(String statement){
-        try{
-            s = c.createStatement();
-            s.executeUpdate(statement);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    //insert
-    public void insert(String statement){
-        try{
-            s = c.createStatement();
-            s.executeUpdate(statement);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    //delete
-    public void delete(String statement){
+    public void executeUpdate(String statement){
         try{
             s = c.createStatement();
             s.executeUpdate(statement);

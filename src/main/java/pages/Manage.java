@@ -4,7 +4,6 @@ import gui.*;
 import model.*;
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.util.ArrayList;
@@ -55,7 +54,7 @@ public class Manage extends CPage {
     //Create table
     private JScrollPane createTable(){
         //read in product data
-        ArrayList<Product> products = Product.getProducts();
+        ArrayList<Product> products = Product.readProducts();
         Collections.reverse(products);
 
         // Define column names and data
@@ -178,7 +177,7 @@ public class Manage extends CPage {
         product.category = category.getText();
 
         //send product and refresh
-        Product.insertProduct(product);
+        Product.createProduct(product);
         clearData();
         refreshTable();
     }
