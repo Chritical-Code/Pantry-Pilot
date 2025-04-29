@@ -166,16 +166,20 @@ public class Manage extends CPage {
     //button functions
     //insert data
     private void insertEntry(){
+        //cancel if name is empty
+        if(Objects.equals(name.getText(), "")){
+            return;
+        }
+
         //turn the text into an object
         Product product = new Product();
         product.brand = brand.getText();
         product.name = name.getText();
         product.category = category.getText();
 
-        //send the object to the model function
+        //send product and refresh
         Product.insertProduct(product);
-
-        //refresh table
+        clearData();
         refreshTable();
     }
 
@@ -190,25 +194,39 @@ public class Manage extends CPage {
 
     //update
     private void updateEntry(){
-        System.out.println("Update");
+        //cancel if id is empty
+        if(Objects.equals(id.getText(), "")){
+            return;
+        }
+
+        //form a product
+        Product product = new Product();
+        product.id = Integer.parseInt(id.getText());
+        product.brand = brand.getText();
+        product.name = name.getText();
+        product.category = category.getText();
+
+        //send statement and refresh
+        Product.updateProduct(product);
+        clearData();
+        refreshTable();
     }
 
     //delete
     private void deleteEntry(){
-        //check if empty
+        //cancel if id is empty
         if(Objects.equals(id.getText(), "")){
             return;
         }
-        else{
-            //send the id to the delete function
-            Product.deleteProduct(Integer.parseInt(id.getText()));
 
-            //refresh table
-            refreshTable();
+        //send the id to the delete function
+        Product.deleteProduct(Integer.parseInt(id.getText()));
 
-            //clear selection
-            clearData();
-        }
+        //refresh table
+        refreshTable();
+
+        //clear selection
+        clearData();
     }
 
     //select

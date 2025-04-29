@@ -1,6 +1,7 @@
 package model;
 
 import db.DBManager;
+import org.sqlite.core.DB;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -44,6 +45,17 @@ public class Product {
         //create the statement
         DBManager dbm = new DBManager();
         String statement = String.format("INSERT INTO Product (brand, name, category) VALUES ('%s', '%s', '%s')", product.brand, product.name, product.category);
+
+        //send the statement and close
+        dbm.insert(statement);
+        dbm.close();
+    }
+
+    //update a product in the database
+    public static void updateProduct(Product product){
+        //create the statement
+        DBManager dbm = new DBManager();
+        String statement = String.format("UPDATE Product SET brand = '%s', name = '%s', category = '%s' WHERE id = %d", product.brand, product.name, product.category, product.id);
 
         //send the statement and close
         dbm.insert(statement);
