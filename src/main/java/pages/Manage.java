@@ -12,11 +12,13 @@ import java.util.Objects;
 
 
 public class Manage extends CPage {
+    //Variables
     private CFlow f_table;
     private JTable table;
     JTextField id, brand, name, category;
 
 
+    //Page contents
     public Manage(){
         //flow: title
         CFlow f_title = new CFlow();
@@ -50,15 +52,16 @@ public class Manage extends CPage {
         f_space.add(space);
     }
 
-    //functions
-    //Create table
+
+    //Functions
+    //create table
     private JScrollPane createTable(){
         //read in product data
         ArrayList<Product> products = Product.readProducts();
         Collections.reverse(products);
 
         // Define column names and data
-        String[] columnNames = {"id", "brand", "name", "category"};
+        String[] columnNames = {"ID", "Brand", "Name", "Category"};
         ArrayList<Object[]> dataList = new ArrayList<>();
         for (Product product : products){
             Object[] row = {product.id, product.brand, product.name, product.category};
@@ -162,7 +165,7 @@ public class Manage extends CPage {
     }
 
 
-    //button functions
+    //Button functions
     //insert data
     private void insertEntry(){
         //cancel if name is empty
