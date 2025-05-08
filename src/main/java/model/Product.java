@@ -11,7 +11,7 @@ public class Product {
     public String name;
     public String category;
 
-    //functions
+    //Functions
     //return full product list
     public static ArrayList<Product> readProducts(){
         //send the SELECT statement
@@ -99,5 +99,11 @@ public class Product {
 
         //close
         dbm.close();
+    }
+
+    //override string for combo box
+    @Override
+    public String toString() {
+        return name;
     }
 }

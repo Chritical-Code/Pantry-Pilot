@@ -41,7 +41,7 @@ public class Base {
         mainPanel.add(manage, CPage.p_manage);
         mainPanel.add(inOut, CPage.p_inOut);
 
-        //set default page
+        /*//set default page
         cardLayout.show(mainPanel, "Home");
 
         // Add a KeyListener to the panel
@@ -51,6 +51,6 @@ public class Base {
                 // This method is called when a key is pressed
                 System.out.println("Key Pressed: " + e.getKeyCode());
             }
-        });
+        });*/
     }
 }
