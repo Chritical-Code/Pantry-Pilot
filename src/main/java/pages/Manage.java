@@ -98,11 +98,6 @@ public class Manage extends CPage {
         //create flow
         CFlow f_textInput = new CFlow();
 
-        //clear button
-        CButton b_clear = new CButton("Clear");
-        b_clear.addActionListener(e -> clearData());
-        f_textInput.add(b_clear);
-
         //id
         CBoxLabel idBox = new CBoxLabel("ID:");
         f_textInput.add(idBox);
@@ -135,6 +130,11 @@ public class Manage extends CPage {
     private  CFlow buttonInputSection(){
         //create flow
         CFlow f_buttonInput = new CFlow();
+
+        //clear button
+        CButton b_clear = new CButton("Clear");
+        b_clear.addActionListener(e -> clearData());
+        f_buttonInput.add(b_clear);
 
         //insert button
         CButton b_insert = new CButton("Add");

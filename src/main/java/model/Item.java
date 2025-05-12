@@ -69,4 +69,23 @@ public class Item {
         //close
         dbm.close();
     }
+
+    //delete a product from the database
+    public static void deleteItem(int inID){
+        //create the sql
+        DBManager dbm = new DBManager();
+        String sql = "DELETE FROM Item WHERE id = ?";
+
+        //prepare and execute
+        try{
+            dbm.ps = dbm.c.prepareStatement(sql);
+            dbm.ps.setInt(1, inID);
+            dbm.ps.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        //close
+        dbm.close();
+    }
 }
