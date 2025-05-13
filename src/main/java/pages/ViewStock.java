@@ -12,7 +12,7 @@ import java.util.Collections;
 public class ViewStock extends CPage {
     //Variables
     private CFlow f_table;
-    private JTable table;
+    private CTable table;
 
     //Page contents
     public ViewStock(){
@@ -61,17 +61,10 @@ public class ViewStock extends CPage {
                 return false;
             }
         };
-        table = new JTable(tableModel);
-
-        //set some table settings *****may want to add to my own CTable*********
-        table.getTableHeader().setReorderingAllowed(false);
-        table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        table = new CTable(tableModel);
 
         // Add the JTable to a JScrollPane for scroll functionality
-        JScrollPane scrollPane = new JScrollPane(table);
-        scrollPane.setPreferredSize(new Dimension(550, 200));
-
-        return scrollPane;
+        return new CScrollPane(table);
     }
 
     //refresh table
@@ -81,5 +74,7 @@ public class ViewStock extends CPage {
         f_table.add(scrollPane);
         f_table.revalidate();
         f_table.repaint();
+        revalidate();
+        repaint();
     }
 }

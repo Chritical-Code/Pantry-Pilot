@@ -14,7 +14,7 @@ import java.util.Objects;
 public class Manage extends CPage {
     //Variables
     private CFlow f_table;
-    private JTable table;
+    private CTable table;
     JTextField id, brand, name, category;
 
 
@@ -77,20 +77,13 @@ public class Manage extends CPage {
                 return false;
             }
         };
-        table = new JTable(tableModel);
-
-        //set some table settings *****may want to add to my own CTable*********
-        table.getTableHeader().setReorderingAllowed(false);
-        table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        table = new CTable(tableModel);
 
         //add select function
         table.getSelectionModel().addListSelectionListener(e -> selectEntry(e));
 
         // Add the JTable to a JScrollPane for scroll functionality
-        JScrollPane scrollPane = new JScrollPane(table);
-        scrollPane.setPreferredSize(new Dimension(550, 200));
-
-        return scrollPane;
+        return new CScrollPane(table);
     }
 
     //create input section
@@ -162,6 +155,8 @@ public class Manage extends CPage {
         f_table.add(scrollPane);
         f_table.revalidate();
         f_table.repaint();
+        revalidate();
+        repaint();
     }
 
 

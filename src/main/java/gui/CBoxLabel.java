@@ -13,5 +13,7 @@ public class CBoxLabel extends JPanel {
         label = new CLabel(text);
         label.setAlignmentX(Component.LEFT_ALIGNMENT);
         add(label);
+
+        setBackground(new Color(0, 0, 0, 0));
     }
 }

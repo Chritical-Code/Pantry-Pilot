@@ -21,13 +21,13 @@ public class Home extends CPage {
         CButton bViewStock = new CButton("View Stock");
         bViewStock.addActionListener(e -> cardLayout.show(mainPanel, CPage.p_viewStock));
         f_nav1.add(bViewStock);
-        //page: manage
-        CButton bManage = new CButton("Manage");
-        bManage.addActionListener(e -> cardLayout.show(mainPanel, CPage.p_manage));
-        f_nav1.add(bManage);
         //page: I/O
         CButton bInOut = new CButton("I/O");
         bInOut.addActionListener(e -> cardLayout.show(mainPanel, CPage.p_inOut));
         f_nav1.add(bInOut);
+        //page: manage
+        CButton bManage = new CButton("Manage");
+        bManage.addActionListener(e -> cardLayout.show(mainPanel, CPage.p_manage));
+        f_nav1.add(bManage);
     }
 }

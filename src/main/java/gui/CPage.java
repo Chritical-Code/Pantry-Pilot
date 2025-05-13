@@ -18,5 +18,6 @@ public class CPage extends JPanel {
     public CPage(){
         BoxLayout box = new BoxLayout(this, BoxLayout.Y_AXIS);
         setLayout(box);
+        setBackground(General.vanilla);
     }
 }

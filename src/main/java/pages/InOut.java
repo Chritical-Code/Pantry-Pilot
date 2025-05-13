@@ -15,7 +15,7 @@ import java.util.Collections;
 public class InOut extends CPage {
     //Variables
     private CFlow f_table;
-    private JTable table;
+    private CTable table;
 
     //Page contents
     public InOut(){
@@ -88,20 +88,13 @@ public class InOut extends CPage {
                 return false;
             }
         };
-        table = new JTable(tableModel);
-
-        //set some table settings *****may want to add to my own CTable*********
-        table.getTableHeader().setReorderingAllowed(false);
-        table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        table = new CTable(tableModel);
 
         //add select function
-        table.getSelectionModel().addListSelectionListener(e -> selectEntry(e));
+        table.getSelectionModel().addListSelectionListener(this::selectEntry);
 
         // Add the JTable to a JScrollPane for scroll functionality
-        JScrollPane scrollPane = new JScrollPane(table);
-        scrollPane.setPreferredSize(new Dimension(550, 200));
-
-        return scrollPane;
+        return new CScrollPane(table);
     }
 
     //create combo box
@@ -121,6 +114,8 @@ public class InOut extends CPage {
         f_table.add(scrollPane);
         f_table.revalidate();
         f_table.repaint();
+        revalidate();
+        repaint();
     }
 
     //Button functions
