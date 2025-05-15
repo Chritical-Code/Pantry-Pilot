@@ -41,9 +41,10 @@ public class Base {
         mainPanel.add(manage, CPage.p_manage);
         mainPanel.add(inOut, CPage.p_inOut);
 
-        /*//set default page
+        //set default page
         cardLayout.show(mainPanel, "Home");
 
+        /*
         // Add a KeyListener to the panel
         frame.setFocusable(true); // Make sure the panel can receive key events
         frame.addKeyListener(new KeyAdapter() {
@@ -51,6 +52,7 @@ public class Base {
                 // This method is called when a key is pressed
                 System.out.println("Key Pressed: " + e.getKeyCode());
             }
-        });*/
+        });
+        */
     }
 }

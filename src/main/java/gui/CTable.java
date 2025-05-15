@@ -2,6 +2,7 @@ package gui;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import java.awt.*;
 
 public class CTable extends JTable {
     public CTable(DefaultTableModel model){

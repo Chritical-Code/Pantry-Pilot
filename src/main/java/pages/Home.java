@@ -7,12 +7,8 @@ import gui.CPage;
 
 public class Home extends CPage {
     public Home(){
-        //Header
-        CFlow f_title = new CFlow();
-        add(f_title);
-        //Label 1
-        CLabel b1_label = new CLabel("Pantry Pilot");
-        f_title.add(b1_label);
+        //header
+        add(new Header("Home"));
 
         //Row 1 icons
         CFlow f_nav1 = new CFlow();

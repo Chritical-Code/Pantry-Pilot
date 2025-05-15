@@ -16,30 +16,19 @@ public class ViewStock extends CPage {
 
     //Page contents
     public ViewStock(){
-        //flow: title
-        CFlow f_title = new CFlow();
-        add(f_title);
-        CLabel title = new CLabel("View Stock");
-        f_title.add(title);
-
-        //flow: return
-        CFlow f_return = new CFlow();
-        add(f_return);
-        CButton b_manage = new CButton("Home");
-        b_manage.addActionListener(e -> cardLayout.show(mainPanel, CPage.p_home));
-        f_return.add(b_manage);
+        //header
+        add(new Header("View Stock"));
 
         //flow: table
         f_table = new CFlow();
         add(f_table);
-        f_table.setPreferredSize(new Dimension(600, 200));
         f_table.add(createTable());
     }
 
 
     //Functions
     //create table
-    private JScrollPane createTable(){
+    private CScrollPane createTable(){
         //read in product data
         ArrayList<Item> items = Item.readItems();
         Collections.reverse(items);

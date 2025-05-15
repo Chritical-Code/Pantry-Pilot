@@ -11,4 +11,5 @@ public class General {
     public static Color vanilla = new Color(255, 251, 239);
     public static Color lightBlue = new Color(135, 219, 255);
     public static Color clear = new Color(0, 0, 0, 0);
+    public static Color cream = new Color(255, 225, 142);
 }

@@ -19,23 +19,12 @@ public class InOut extends CPage {
 
     //Page contents
     public InOut(){
-        //flow: title
-        CFlow f_title = new CFlow();
-        add(f_title);
-        CLabel title = new CLabel("I/O");
-        f_title.add(title);
-
-        //flow: return
-        CFlow f_return = new CFlow();
-        add(f_return);
-        CButton bManage = new CButton("Home");
-        bManage.addActionListener(e -> cardLayout.show(mainPanel, CPage.p_home));
-        f_return.add(bManage);
+        //header
+        add(new Header("I/O"));
 
         //flow: table
         f_table = new CFlow();
         add(f_table);
-        f_table.setPreferredSize(new Dimension(600, 200));
         f_table.add(createTable());
 
         //flow: options
@@ -66,7 +55,7 @@ public class InOut extends CPage {
 
     //Functions
     //create table
-    private JScrollPane createTable(){
+    private CScrollPane createTable(){
         //read in product data
         ArrayList<Item> items = Item.readItems();
         Collections.reverse(items);

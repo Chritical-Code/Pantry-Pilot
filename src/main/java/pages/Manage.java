@@ -20,23 +20,12 @@ public class Manage extends CPage {
 
     //Page contents
     public Manage(){
-        //flow: title
-        CFlow f_title = new CFlow();
-        add(f_title);
-        CLabel title = new CLabel("Manage");
-        f_title.add(title);
-
-        //flow: return
-        CFlow f_return = new CFlow();
-        add(f_return);
-        CButton bManage = new CButton("Home");
-        bManage.addActionListener(e -> cardLayout.show(mainPanel, CPage.p_home));
-        f_return.add(bManage);
+        //header
+        add(new Header("Manage"));
 
         //flow: table
         f_table = new CFlow();
         add(f_table);
-        f_table.setPreferredSize(new Dimension(600, 200));
         f_table.add(createTable());
 
         //flow: text input
@@ -55,7 +44,7 @@ public class Manage extends CPage {
 
     //Functions
     //create table
-    private JScrollPane createTable(){
+    private CScrollPane createTable(){
         //read in product data
         ArrayList<Product> products = Product.readProducts();
         Collections.reverse(products);
