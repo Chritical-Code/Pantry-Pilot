@@ -33,12 +33,6 @@ public class Manage extends CPage {
 
         //flow: button input
         add(buttonInputSection());
-
-        //flow: bottom space
-        CFlow f_space = new CFlow();
-        add(f_space);
-        CLabel space = new CLabel("space");
-        f_space.add(space);
     }
 
 
