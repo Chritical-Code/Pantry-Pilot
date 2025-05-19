@@ -15,4 +15,13 @@ public class General {
     public static Color red = new Color(255, 86 ,86);
     public static Color yellow = new Color(255, 225, 102);
     public static Color orange = new Color(255, 154, 86);
+
+    //Functions
+    //set the size of a component
+    public static void sizomatic(Component component, int width, int height){
+        Dimension dim = new Dimension(width, height);
+        component.setMinimumSize(dim);
+        component.setMaximumSize(dim);
+        component.setPreferredSize(dim);
+    }
 }

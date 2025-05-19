@@ -13,7 +13,7 @@ import java.util.Objects;
 
 public class Manage extends CPage {
     //Variables
-    private CFlow f_table;
+    private CBoxFlow f_table;
     private CTable table;
     JTextField id, brand, name, category;
 
@@ -23,16 +23,33 @@ public class Manage extends CPage {
         //header
         add(new Header("Manage"));
 
+        //glue
+        add(Box.createVerticalGlue());
+
         //flow: table
-        f_table = new CFlow();
+        f_table = new CBoxFlow();
+        General.sizomatic(f_table, 1000, 300);
         add(f_table);
         f_table.add(createTable());
 
+        //glue
+        add(Box.createVerticalGlue());
+
         //flow: text input
-        add(textInputSection());
+        CBoxFlow f_textInput = textInputSection();
+        General.sizomatic(f_textInput, 1000, 50);
+        add(f_textInput);
+
+        //glue
+        add(Box.createVerticalGlue());
 
         //flow: button input
-        add(buttonInputSection());
+        CBoxFlow f_buttonInput = buttonInputSection();
+        General.sizomatic(f_buttonInput, 1000, 100);
+        add(f_buttonInput);
+
+        //glue
+        add(Box.createVerticalGlue());
     }
 
 
@@ -70,9 +87,9 @@ public class Manage extends CPage {
     }
 
     //create input section
-    private CFlow textInputSection(){
+    private CBoxFlow textInputSection(){
         //create flow
-        CFlow f_textInput = new CFlow();
+        CBoxFlow f_textInput = new CBoxFlow();
 
         //id
         CBoxLabel idBox = new CBoxLabel("ID:");
@@ -103,9 +120,12 @@ public class Manage extends CPage {
     }
 
     //create button input section
-    private  CFlow buttonInputSection(){
+    private  CBoxFlow buttonInputSection(){
         //create flow
-        CFlow f_buttonInput = new CFlow();
+        CBoxFlow f_buttonInput = new CBoxFlow();
+
+        //glue
+        f_buttonInput.add(Box.createHorizontalGlue());
 
         //clear button
         CButton b_clear = new CButton("Clear");
@@ -113,11 +133,17 @@ public class Manage extends CPage {
         b_clear.setBackground(General.orange);
         f_buttonInput.add(b_clear);
 
+        //glue
+        f_buttonInput.add(Box.createHorizontalGlue());
+
         //insert button
         CButton b_insert = new CButton("Add");
         b_insert.addActionListener(e -> insertEntry());
         b_insert.setBackground(General.green);
         f_buttonInput.add(b_insert);
+
+        //glue
+        f_buttonInput.add(Box.createHorizontalGlue());
 
         //update button
         CButton b_update = new CButton("Update");
@@ -125,11 +151,17 @@ public class Manage extends CPage {
         b_update.setBackground(General.yellow);
         f_buttonInput.add(b_update);
 
+        //glue
+        f_buttonInput.add(Box.createHorizontalGlue());
+
         //delete button
         CButton b_delete = new CButton("Delete");
         b_delete.addActionListener(e -> deleteEntry());
         b_delete.setBackground(General.red);
         f_buttonInput.add(b_delete);
+
+        //glue
+        f_buttonInput.add(Box.createHorizontalGlue());
 
         //return flow
         return  f_buttonInput;

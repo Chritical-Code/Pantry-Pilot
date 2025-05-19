@@ -18,15 +18,13 @@ public class Header extends JPanel {
         add(Box.createRigidArea(new Dimension(10,0)));
 
         //home button
-        CButton b_manage = new CButton("Home");
-        b_manage.addActionListener(e -> CPage.cardLayout.show(CPage.mainPanel, CPage.p_home));
-        b_manage.setMinimumSize(new Dimension(75, 50));
-        b_manage.setMaximumSize(new Dimension(75, 50));
-        b_manage.setPreferredSize(new Dimension(75, 50));
-        add(b_manage);
+        CButton b_home = new CButton("Home");
+        b_home.addActionListener(e -> CPage.cardLayout.show(CPage.mainPanel, CPage.p_home));
+        General.sizomatic(b_home, 75, 50);
+        add(b_home);
 
         //gap
-        add(Box.createRigidArea(new Dimension(75,0)));
+        add(Box.createRigidArea(new Dimension(85,0)));
 
         //glue
         add(Box.createHorizontalGlue());
@@ -41,9 +39,7 @@ public class Header extends JPanel {
 
         //button settings
         CButton b_settings = new CButton("Notifications");
-        b_settings.setMinimumSize(new Dimension(75, 50));
-        b_settings.setMaximumSize(new Dimension(75, 50));
-        b_settings.setPreferredSize(new Dimension(75, 50));
+        General.sizomatic(b_settings, 75, 50);
         add(b_settings);
 
         //gap
@@ -51,9 +47,7 @@ public class Header extends JPanel {
 
         //button notif
         CButton b_notif = new CButton("Settings");
-        b_notif.setMinimumSize(new Dimension(75, 50));
-        b_notif.setMaximumSize(new Dimension(75, 50));
-        b_notif.setPreferredSize(new Dimension(75, 50));
+        General.sizomatic(b_notif, 75, 50);
         add(b_notif);
 
         //gap
