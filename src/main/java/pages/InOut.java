@@ -45,11 +45,15 @@ public class InOut extends CPage {
         //flow: inputs
         CFlow f_inputs = new CFlow();
         add(f_inputs);
+        //add button
         CButton b_add = new CButton("Add");
         b_add.addActionListener(e -> add(productsCombo, dateChooser));
+        b_add.setBackground(General.green);
+        f_inputs.add(b_add);
+        //delete button
         CButton b_delete = new CButton("Delete");
         b_delete.addActionListener(e -> delete());
-        f_inputs.add(b_add);
+        b_delete.setBackground(General.red);
         f_inputs.add(b_delete);
     }
 

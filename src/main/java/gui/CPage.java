@@ -16,7 +16,7 @@ public class CPage extends JPanel {
     public static String p_inOut = "InOut";
 
     public CPage(){
-        BoxLayout box = new BoxLayout(this, BoxLayout.Y_AXIS);
+        BoxLayout box = new BoxLayout(this, BoxLayout.PAGE_AXIS);
         setLayout(box);
         setBackground(General.vanilla);
     }

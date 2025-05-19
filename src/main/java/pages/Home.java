@@ -1,29 +1,45 @@
 package pages;
 
-import gui.CButton;
-import gui.CFlow;
-import gui.CLabel;
-import gui.CPage;
+import gui.*;
+
+import javax.swing.*;
+import java.awt.*;
 
 public class Home extends CPage {
     public Home(){
         //header
-        add(new Header("Home"));
+        add(new Header("Pantry Pilot"));
 
-        //Row 1 icons
-        CFlow f_nav1 = new CFlow();
-        add(f_nav1);
-        //page: view stock
-        CButton bViewStock = new CButton("View Stock");
-        bViewStock.addActionListener(e -> cardLayout.show(mainPanel, CPage.p_viewStock));
-        f_nav1.add(bViewStock);
-        //page: I/O
-        CButton bInOut = new CButton("I/O");
-        bInOut.addActionListener(e -> cardLayout.show(mainPanel, CPage.p_inOut));
-        f_nav1.add(bInOut);
-        //page: manage
-        CButton bManage = new CButton("Manage");
-        bManage.addActionListener(e -> cardLayout.show(mainPanel, CPage.p_manage));
-        f_nav1.add(bManage);
+        //gap
+        add(Box.createRigidArea(new Dimension(0,150)));
+
+        //Row 1 links
+        JPanel f_row1 = new JPanel();
+        f_row1.setBackground(General.clear);
+        add(f_row1);
+
+        //button: view stock
+        CButton b_ViewStock = new CButton("View Stock");
+        b_ViewStock.addActionListener(e -> cardLayout.show(mainPanel, CPage.p_viewStock));
+        b_ViewStock.setPreferredSize(new Dimension(100, 100));
+        f_row1.add(b_ViewStock);
+
+        //gap
+        f_row1.add(Box.createRigidArea(new Dimension(100, 0)));
+
+        //button: I/O
+        CButton b_InOut = new CButton("I/O");
+        b_InOut.addActionListener(e -> cardLayout.show(mainPanel, CPage.p_inOut));
+        b_InOut.setPreferredSize(new Dimension(100, 100));
+        f_row1.add(b_InOut);
+
+        //gap
+        f_row1.add(Box.createRigidArea(new Dimension(100, 0)));
+
+        //button: manage
+        CButton b_Manage = new CButton("Manage");
+        b_Manage.addActionListener(e -> cardLayout.show(mainPanel, CPage.p_manage));
+        b_Manage.setPreferredSize(new Dimension(100, 100));
+        f_row1.add(b_Manage);
     }
 }

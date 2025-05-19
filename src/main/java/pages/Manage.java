@@ -110,21 +110,25 @@ public class Manage extends CPage {
         //clear button
         CButton b_clear = new CButton("Clear");
         b_clear.addActionListener(e -> clearData());
+        b_clear.setBackground(General.orange);
         f_buttonInput.add(b_clear);
 
         //insert button
         CButton b_insert = new CButton("Add");
         b_insert.addActionListener(e -> insertEntry());
+        b_insert.setBackground(General.green);
         f_buttonInput.add(b_insert);
 
         //update button
         CButton b_update = new CButton("Update");
         b_update.addActionListener(e -> updateEntry());
+        b_update.setBackground(General.yellow);
         f_buttonInput.add(b_update);
 
         //delete button
         CButton b_delete = new CButton("Delete");
         b_delete.addActionListener(e -> deleteEntry());
+        b_delete.setBackground(General.red);
         f_buttonInput.add(b_delete);
 
         //return flow

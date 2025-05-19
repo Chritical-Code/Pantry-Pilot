@@ -20,11 +20,13 @@ public class Header extends JPanel {
         //home button
         CButton b_manage = new CButton("Home");
         b_manage.addActionListener(e -> CPage.cardLayout.show(CPage.mainPanel, CPage.p_home));
-        //b_manage.setAlignmentX(.5f);
+        b_manage.setMinimumSize(new Dimension(75, 50));
+        b_manage.setMaximumSize(new Dimension(75, 50));
+        b_manage.setPreferredSize(new Dimension(75, 50));
         add(b_manage);
 
         //gap
-        add(Box.createRigidArea(new Dimension(110,0)));
+        add(Box.createRigidArea(new Dimension(75,0)));
 
         //glue
         add(Box.createHorizontalGlue());
@@ -32,7 +34,6 @@ public class Header extends JPanel {
         //title text
         CLabel title = new CLabel(inTitle);
         title.setFont(new Font("Berlin Sans FB Demi", Font.PLAIN, 60));
-        title.setAlignmentX(.5f);
         add(title);
 
         //glue
@@ -40,6 +41,9 @@ public class Header extends JPanel {
 
         //button settings
         CButton b_settings = new CButton("Notifications");
+        b_settings.setMinimumSize(new Dimension(75, 50));
+        b_settings.setMaximumSize(new Dimension(75, 50));
+        b_settings.setPreferredSize(new Dimension(75, 50));
         add(b_settings);
 
         //gap
@@ -47,6 +51,9 @@ public class Header extends JPanel {
 
         //button notif
         CButton b_notif = new CButton("Settings");
+        b_notif.setMinimumSize(new Dimension(75, 50));
+        b_notif.setMaximumSize(new Dimension(75, 50));
+        b_notif.setPreferredSize(new Dimension(75, 50));
         add(b_notif);
 
         //gap
