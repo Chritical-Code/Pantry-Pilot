@@ -15,7 +15,7 @@ public class Manage extends CPage {
     //Variables
     private CBoxFlow f_table;
     private CTable table;
-    JTextField id, brand, name, category;
+    CTextField id, brand, name, category;
 
 
     //Page contents
@@ -28,7 +28,7 @@ public class Manage extends CPage {
 
         //flow: table
         f_table = new CBoxFlow();
-        General.sizomatic(f_table, 1000, 300);
+        General.sizomatic(f_table, 1200, 300);
         add(f_table);
         f_table.add(createTable());
 
@@ -37,7 +37,7 @@ public class Manage extends CPage {
 
         //flow: text input
         CBoxFlow f_textInput = textInputSection();
-        General.sizomatic(f_textInput, 1000, 50);
+        General.sizomatic(f_textInput, 1200, 100);
         add(f_textInput);
 
         //glue
@@ -45,7 +45,7 @@ public class Manage extends CPage {
 
         //flow: button input
         CBoxFlow f_buttonInput = buttonInputSection();
-        General.sizomatic(f_buttonInput, 1000, 100);
+        General.sizomatic(f_buttonInput, 1200, 100);
         add(f_buttonInput);
 
         //glue
@@ -86,35 +86,58 @@ public class Manage extends CPage {
         return new CScrollPane(table);
     }
 
-    //create input section
+    //create text input section
     private CBoxFlow textInputSection(){
         //create flow
         CBoxFlow f_textInput = new CBoxFlow();
 
+        //glue
+        f_textInput.add(Box.createHorizontalGlue());
+
         //id
         CBoxLabel idBox = new CBoxLabel("ID:");
+        General.sizomatic(idBox, 60, 80);
         f_textInput.add(idBox);
-        id = new JTextField(5);
+        id = new CTextField(5);
         id.setEditable(false);
+        General.sizomatic(id, 60, 40);
         idBox.add(id);
+
+        //glue
+        f_textInput.add(Box.createHorizontalGlue());
 
         //brand
         CBoxLabel brandBox = new CBoxLabel("Brand:");
+        General.sizomatic(brandBox, 300, 80);
         f_textInput.add(brandBox);
-        brand = new JTextField(10);
+        brand = new CTextField(10);
+        General.sizomatic(brand, 300, 40);
         brandBox.add(brand);
+
+        //glue
+        f_textInput.add(Box.createHorizontalGlue());
 
         //name
         CBoxLabel nameBox = new CBoxLabel("Name:");
+        General.sizomatic(nameBox, 300, 80);
         f_textInput.add(nameBox);
-        name = new JTextField(10);
+        name = new CTextField(10);
+        General.sizomatic(name, 300, 40);
         nameBox.add(name);
+
+        //glue
+        f_textInput.add(Box.createHorizontalGlue());
 
         //category
         CBoxLabel categoryBox = new CBoxLabel("Category:");
+        General.sizomatic(categoryBox, 300, 80);
         f_textInput.add(categoryBox);
-        category = new JTextField(10);
+        category = new CTextField(10);
+        General.sizomatic(category, 300, 40);
         categoryBox.add(category);
+
+        //glue
+        f_textInput.add(Box.createHorizontalGlue());
 
         return  f_textInput;
     }
@@ -131,6 +154,7 @@ public class Manage extends CPage {
         CButton b_clear = new CButton("Clear");
         b_clear.addActionListener(e -> clearData());
         b_clear.setBackground(General.orange);
+        General.sizomatic(b_clear, 100, 50);
         f_buttonInput.add(b_clear);
 
         //glue
@@ -140,6 +164,7 @@ public class Manage extends CPage {
         CButton b_insert = new CButton("Add");
         b_insert.addActionListener(e -> insertEntry());
         b_insert.setBackground(General.green);
+        General.sizomatic(b_insert, 100, 50);
         f_buttonInput.add(b_insert);
 
         //glue
@@ -149,6 +174,7 @@ public class Manage extends CPage {
         CButton b_update = new CButton("Update");
         b_update.addActionListener(e -> updateEntry());
         b_update.setBackground(General.yellow);
+        General.sizomatic(b_update, 100, 50);
         f_buttonInput.add(b_update);
 
         //glue
@@ -158,6 +184,7 @@ public class Manage extends CPage {
         CButton b_delete = new CButton("Delete");
         b_delete.addActionListener(e -> deleteEntry());
         b_delete.setBackground(General.red);
+        General.sizomatic(b_delete, 100, 50);
         f_buttonInput.add(b_delete);
 
         //glue

@@ -4,7 +4,6 @@ import java.awt.*;
 
 //General properties for use in GUI class
 public class General {
-    //Colors
     //theme colors
     public static Color vanilla = new Color(255, 251, 239);
     public static Color lightBlue = new Color(135, 219, 255);
@@ -15,6 +14,9 @@ public class General {
     public static Color red = new Color(255, 86 ,86);
     public static Color yellow = new Color(255, 225, 102);
     public static Color orange = new Color(255, 154, 86);
+    //fonts
+    public static Font mainFont = new Font("Arial", Font.PLAIN, 16);
+    public static Font mainFontBold = new Font("Arial", Font.BOLD, 16);
 
     //Functions
     //set the size of a component

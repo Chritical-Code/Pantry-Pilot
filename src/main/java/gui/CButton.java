@@ -9,6 +9,7 @@ public class CButton extends JButton {
         super(defaultText);
         setFocusPainted(false);
         setBackground(General.lightBlue);
+        setFont(General.mainFontBold);
     }
 
     //Functions

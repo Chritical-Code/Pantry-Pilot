@@ -13,5 +13,11 @@ public class CTable extends JTable {
         setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         setBackground(General.vanilla);
         getTableHeader().setBackground(General.vanilla);
+
+
+        //settings
+        setFont(General.mainFont);
+        setRowHeight(24);
+        getTableHeader().setFont(General.mainFontBold);
     }
 }

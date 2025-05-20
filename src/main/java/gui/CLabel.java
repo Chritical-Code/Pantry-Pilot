@@ -7,5 +7,6 @@ import java.awt.*;
 public class CLabel extends JLabel {
     public CLabel(String inText){
         super(inText);
+        setFont(General.mainFont);
     }
 }

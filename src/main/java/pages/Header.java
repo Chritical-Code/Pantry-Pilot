@@ -18,13 +18,13 @@ public class Header extends JPanel {
         add(Box.createRigidArea(new Dimension(10,0)));
 
         //home button
-        CButton b_home = new CButton("Home");
+        CButton b_home = new CButton("H");
         b_home.addActionListener(e -> CPage.cardLayout.show(CPage.mainPanel, CPage.p_home));
-        General.sizomatic(b_home, 75, 50);
+        General.sizomatic(b_home, 50, 50);
         add(b_home);
 
         //gap
-        add(Box.createRigidArea(new Dimension(85,0)));
+        add(Box.createRigidArea(new Dimension(60,0)));
 
         //glue
         add(Box.createHorizontalGlue());
@@ -38,16 +38,16 @@ public class Header extends JPanel {
         add(Box.createHorizontalGlue());
 
         //button settings
-        CButton b_settings = new CButton("Notifications");
-        General.sizomatic(b_settings, 75, 50);
+        CButton b_settings = new CButton("N");
+        General.sizomatic(b_settings, 50, 50);
         add(b_settings);
 
         //gap
         add(Box.createRigidArea(new Dimension(10,0)));
 
         //button notif
-        CButton b_notif = new CButton("Settings");
-        General.sizomatic(b_notif, 75, 50);
+        CButton b_notif = new CButton("S");
+        General.sizomatic(b_notif, 50, 50);
         add(b_notif);
 
         //gap

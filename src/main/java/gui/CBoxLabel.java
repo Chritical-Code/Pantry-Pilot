@@ -11,10 +11,13 @@ public class CBoxLabel extends JPanel {
         setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
         setBackground(General.clear);
 
-        //layout
+        //flow: label
+        CBoxFlow f_label = new CBoxFlow();
+        add(f_label);
+        //label
         label = new CLabel(text);
-        label.setAlignmentX(Component.LEFT_ALIGNMENT);
-        add(label);
+        label.setFont(General.mainFontBold);
+        f_label.add(label);
 
     }
 }

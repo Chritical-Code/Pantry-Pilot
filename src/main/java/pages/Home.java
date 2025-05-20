@@ -21,7 +21,7 @@ public class Home extends CPage {
         f_row1.add(Box.createHorizontalGlue());
 
         //button: view stock
-        CButton b_ViewStock = new CButton("View Stock");
+        CButton b_ViewStock = new CButton("Stock");
         b_ViewStock.addActionListener(e -> cardLayout.show(mainPanel, CPage.p_viewStock));
         General.sizomatic(b_ViewStock, 100, 100);
         f_row1.add(b_ViewStock);
