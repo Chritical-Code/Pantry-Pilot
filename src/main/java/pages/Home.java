@@ -10,14 +10,14 @@ public class Home extends CPage {
         //header
         add(new Header("Pantry Pilot"));
 
-        //glue
+        //vertical glue
         add(Box.createVerticalGlue());
 
         //Row 1 links
         CBoxFlow f_row1 = new CBoxFlow();
         add(f_row1);
 
-        //glue
+        //horizontal glue
         f_row1.add(Box.createHorizontalGlue());
 
         //button: view stock
@@ -26,7 +26,7 @@ public class Home extends CPage {
         General.sizomatic(b_ViewStock, 100, 100);
         f_row1.add(b_ViewStock);
 
-        //glue
+        //horizontal glue
         f_row1.add(Box.createHorizontalGlue());
 
         //button: I/O
@@ -35,7 +35,7 @@ public class Home extends CPage {
         General.sizomatic(b_InOut, 100, 100);
         f_row1.add(b_InOut);
 
-        //glue
+        //horizontal glue
         f_row1.add(Box.createHorizontalGlue());
 
         //button: manage
@@ -44,10 +44,10 @@ public class Home extends CPage {
         General.sizomatic(b_Manage, 100, 100);
         f_row1.add(b_Manage);
 
-        //glue
+        //horizontal glue
         f_row1.add(Box.createHorizontalGlue());
 
-        //glue
+        //vertical glue
         add(Box.createVerticalGlue());
     }
 }

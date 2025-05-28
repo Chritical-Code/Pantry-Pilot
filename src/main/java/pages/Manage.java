@@ -5,7 +5,6 @@ import model.*;
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.table.DefaultTableModel;
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Objects;
@@ -23,32 +22,31 @@ public class Manage extends CPage {
         //header
         add(new Header("Manage"));
 
-        //glue
+        //vertical glue
         add(Box.createVerticalGlue());
 
         //flow: table
         f_table = new CBoxFlow();
-        General.sizomatic(f_table, 1200, 300);
         add(f_table);
         f_table.add(createTable());
 
-        //glue
+        //vertical glue
         add(Box.createVerticalGlue());
 
         //flow: text input
-        CBoxFlow f_textInput = textInputSection();
+        CBoxFlow f_textInput = createTextInputSection();
         General.sizomatic(f_textInput, 1200, 100);
         add(f_textInput);
 
-        //glue
+        //vertical glue
         add(Box.createVerticalGlue());
 
         //flow: button input
-        CBoxFlow f_buttonInput = buttonInputSection();
+        CBoxFlow f_buttonInput = createButtonInputSection();
         General.sizomatic(f_buttonInput, 1200, 100);
         add(f_buttonInput);
 
-        //glue
+        //vertical glue
         add(Box.createVerticalGlue());
     }
 
@@ -83,15 +81,17 @@ public class Manage extends CPage {
         table.getSelectionModel().addListSelectionListener(e -> selectEntry(e));
 
         // Add the JTable to a JScrollPane for scroll functionality
-        return new CScrollPane(table);
+        CScrollPane scrollPane = new CScrollPane(table);
+        General.sizomatic(scrollPane, 1200, 300);
+        return scrollPane;
     }
 
     //create text input section
-    private CBoxFlow textInputSection(){
+    private CBoxFlow createTextInputSection(){
         //create flow
         CBoxFlow f_textInput = new CBoxFlow();
 
-        //glue
+        //horizontal glue
         f_textInput.add(Box.createHorizontalGlue());
 
         //id
@@ -103,7 +103,7 @@ public class Manage extends CPage {
         General.sizomatic(id, 60, 40);
         idBox.add(id);
 
-        //glue
+        //horizontal glue
         f_textInput.add(Box.createHorizontalGlue());
 
         //brand
@@ -114,7 +114,7 @@ public class Manage extends CPage {
         General.sizomatic(brand, 300, 40);
         brandBox.add(brand);
 
-        //glue
+        //horizontal glue
         f_textInput.add(Box.createHorizontalGlue());
 
         //name
@@ -125,7 +125,7 @@ public class Manage extends CPage {
         General.sizomatic(name, 300, 40);
         nameBox.add(name);
 
-        //glue
+        //horizontal glue
         f_textInput.add(Box.createHorizontalGlue());
 
         //category
@@ -136,18 +136,18 @@ public class Manage extends CPage {
         General.sizomatic(category, 300, 40);
         categoryBox.add(category);
 
-        //glue
+        //horizontal glue
         f_textInput.add(Box.createHorizontalGlue());
 
         return  f_textInput;
     }
 
     //create button input section
-    private  CBoxFlow buttonInputSection(){
+    private  CBoxFlow createButtonInputSection(){
         //create flow
         CBoxFlow f_buttonInput = new CBoxFlow();
 
-        //glue
+        //horizontal glue
         f_buttonInput.add(Box.createHorizontalGlue());
 
         //clear button
@@ -157,7 +157,7 @@ public class Manage extends CPage {
         General.sizomatic(b_clear, 100, 50);
         f_buttonInput.add(b_clear);
 
-        //glue
+        //horizontal glue
         f_buttonInput.add(Box.createHorizontalGlue());
 
         //insert button
@@ -167,7 +167,7 @@ public class Manage extends CPage {
         General.sizomatic(b_insert, 100, 50);
         f_buttonInput.add(b_insert);
 
-        //glue
+        //horizontal glue
         f_buttonInput.add(Box.createHorizontalGlue());
 
         //update button
@@ -177,7 +177,7 @@ public class Manage extends CPage {
         General.sizomatic(b_update, 100, 50);
         f_buttonInput.add(b_update);
 
-        //glue
+        //horizontal glue
         f_buttonInput.add(Box.createHorizontalGlue());
 
         //delete button
@@ -187,7 +187,7 @@ public class Manage extends CPage {
         General.sizomatic(b_delete, 100, 50);
         f_buttonInput.add(b_delete);
 
-        //glue
+        //horizontal glue
         f_buttonInput.add(Box.createHorizontalGlue());
 
         //return flow

@@ -11,8 +11,8 @@ public class CTable extends JTable {
         //customize
         getTableHeader().setReorderingAllowed(false);
         setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        setBackground(General.vanilla);
-        getTableHeader().setBackground(General.vanilla);
+        //setBackground(General.lightBlue);
+        //getTableHeader().setBackground(General.lightBlue);
 
 
         //settings

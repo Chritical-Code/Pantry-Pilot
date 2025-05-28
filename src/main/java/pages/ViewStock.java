@@ -11,18 +11,24 @@ import java.util.Collections;
 
 public class ViewStock extends CPage {
     //Variables
-    private CFlow f_table;
+    private CBoxFlow f_table;
     private CTable table;
 
     //Page contents
     public ViewStock(){
         //header
-        add(new Header("View Stock"));
+        add(new Header("Stock"));
+
+        //vertical glue
+        add(Box.createVerticalGlue());
 
         //flow: table
-        f_table = new CFlow();
+        f_table = new CBoxFlow();
         add(f_table);
         f_table.add(createTable());
+
+        //vertical glue
+        add(Box.createVerticalGlue());
     }
 
 
@@ -53,7 +59,9 @@ public class ViewStock extends CPage {
         table = new CTable(tableModel);
 
         // Add the JTable to a JScrollPane for scroll functionality
-        return new CScrollPane(table);
+        CScrollPane scrollPane = new CScrollPane(table);
+        General.sizomatic(scrollPane, 1200, 500);
+        return scrollPane;
     }
 
     //refresh table

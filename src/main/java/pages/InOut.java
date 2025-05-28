@@ -14,47 +14,41 @@ import java.util.Collections;
 
 public class InOut extends CPage {
     //Variables
-    private CFlow f_table;
+    private CBoxFlow f_table;
     private CTable table;
+    JComboBox<Product> productsCombo;
+    JDateChooser dateChooser;
 
     //Page contents
     public InOut(){
         //header
         add(new Header("I/O"));
 
+        //vertical glue
+        add(Box.createVerticalGlue());
+
         //flow: table
-        f_table = new CFlow();
+        f_table = new CBoxFlow();
         add(f_table);
         f_table.add(createTable());
 
+        //vertical glue
+        add(Box.createVerticalGlue());
+
         //flow: options
-        CFlow f_options = new CFlow();
+        CBoxFlow f_options = createOptionSection();
+        General.sizomatic(f_options, 1200, 100);
         add(f_options);
-        //product
-        CBoxLabel productBox = new CBoxLabel("Product:");
-        f_options.add(productBox);
-        JComboBox<Product> productsCombo = createComboBox();
-        productBox.add(productsCombo);
-        //date
-        CBoxLabel dateBox = new CBoxLabel("Date:");
-        f_options.add(dateBox);
-        JDateChooser dateChooser = new JDateChooser();
-        dateChooser.setPreferredSize(new Dimension(125, 20));
-        dateBox.add(dateChooser);
+
+        //vertical glue
+        add(Box.createVerticalGlue());
 
         //flow: inputs
-        CFlow f_inputs = new CFlow();
+        CBoxFlow f_inputs = createInputSection();
         add(f_inputs);
-        //add button
-        CButton b_add = new CButton("Add");
-        b_add.addActionListener(e -> add(productsCombo, dateChooser));
-        b_add.setBackground(General.green);
-        f_inputs.add(b_add);
-        //delete button
-        CButton b_delete = new CButton("Delete");
-        b_delete.addActionListener(e -> delete());
-        b_delete.setBackground(General.red);
-        f_inputs.add(b_delete);
+
+        //vertical glue
+        add(Box.createVerticalGlue());
     }
 
     //Functions
@@ -87,7 +81,75 @@ public class InOut extends CPage {
         table.getSelectionModel().addListSelectionListener(this::selectEntry);
 
         // Add the JTable to a JScrollPane for scroll functionality
-        return new CScrollPane(table);
+        CScrollPane scrollPane = new CScrollPane(table);
+        General.sizomatic(scrollPane, 1200, 300);
+        return scrollPane;
+    }
+
+    //create options section
+    private CBoxFlow createOptionSection(){
+        //create flow
+        CBoxFlow f_options = new CBoxFlow();
+
+        //horizontal glue
+        f_options.add(Box.createHorizontalGlue());
+
+        //product
+        CBoxLabel productBox = new CBoxLabel("Product:");
+        f_options.add(productBox);
+        productsCombo = createComboBox();
+        General.sizomatic(productsCombo, 300, 40);
+        productsCombo.setFont(General.mainFont);
+        productBox.add(productsCombo);
+
+        //horizontal glue
+        f_options.add(Box.createHorizontalGlue());
+
+        //date
+        CBoxLabel dateBox = new CBoxLabel("Date:");
+        f_options.add(dateBox);
+        dateChooser = new JDateChooser();
+        General.sizomatic(dateChooser, 300, 40);
+        dateChooser.setFont(General.mainFont);
+        dateBox.add(dateChooser);
+
+        //horizontal glue
+        f_options.add(Box.createHorizontalGlue());
+
+        //return flow
+        return f_options;
+    }
+
+    //create button input section
+    private CBoxFlow createInputSection(){
+        //make the flow
+        CBoxFlow f_inputs = new CBoxFlow();
+
+        //horizontal glue
+        f_inputs.add(Box.createHorizontalGlue());
+
+        //add button
+        CButton b_add = new CButton("Add");
+        b_add.addActionListener(e -> add(productsCombo, dateChooser));
+        b_add.setBackground(General.green);
+        General.sizomatic(b_add, 100, 50);
+        f_inputs.add(b_add);
+
+        //horizontal glue
+        f_inputs.add(Box.createHorizontalGlue());
+
+        //delete button
+        CButton b_delete = new CButton("Delete");
+        b_delete.addActionListener(e -> delete());
+        b_delete.setBackground(General.red);
+        General.sizomatic(b_delete, 100, 50);
+        f_inputs.add(b_delete);
+
+        //horizontal glue
+        f_inputs.add(Box.createHorizontalGlue());
+
+        //return the flow
+        return f_inputs;
     }
 
     //create combo box
