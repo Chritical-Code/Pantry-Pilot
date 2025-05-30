@@ -1,0 +1,33 @@
+Pantry Pilot (remember to git)
+
+Now:
++bugs
+-need to refresh page/data when i open it
+ .unloaded pages theory
+
+Function:
++view stock page
+-filters and data interpretation
+-search bar
+
++known problems
+-add auto refresh
+-deleting from i/o is disorienting, consider removing from  table instead of refreshing whole table
+-add an about section for icon credits
+
++add more pages
+-graphs
+-orders
+-automation
+
+Design:
++look and feel
+-consider making every like-thing like-sized
+
++logo theory
+-plane, chef, sky
+-plane, shelves, sihllouete
+-simple design, simple colors
+-examples online: mozilla, dropbox, slack
+-biplane, boxes or shelves with groceries, inspo by dropbox
+-basket
