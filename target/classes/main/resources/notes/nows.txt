@@ -4,7 +4,6 @@ Now:
 +bugs
 -need to refresh page/data when i open it
  .unloaded pages theory
- -******so basically replace each page's constructor with an overloaded loadContent(), and see if that works****
 
 Function:
 +view stock page

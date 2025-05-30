@@ -14,8 +14,10 @@ public class ViewStock extends CPage {
     private CBoxFlow f_table;
     private CTable table;
 
-    //Page contents
-    public ViewStock(){
+
+    //Page Content
+    @Override
+    public void loadContent() {
         //header
         add(new Header("Stock"));
 
@@ -30,7 +32,6 @@ public class ViewStock extends CPage {
         //vertical glue
         add(Box.createVerticalGlue());
     }
-
 
     //Functions
     //create table
