@@ -25,7 +25,13 @@ public class Header extends JPanel {
         add(b_home);
 
         //gap
-        add(Box.createRigidArea(new Dimension(80,0)));
+        add(Box.createRigidArea(new Dimension(20,0)));
+
+        //about button
+        //<a target="_blank" href="https://icons8.com/icon/6644/question-mark">Question Mark</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+        CButtonIcon b_about = new CButtonIcon("/icons/about-icon.png");
+        b_about.addActionListener(e -> CPage.cardLayout.show(CPage.mainPanel, CPage.p_about));
+        add(b_about);
 
         //horizontal glue
         add(Box.createHorizontalGlue());

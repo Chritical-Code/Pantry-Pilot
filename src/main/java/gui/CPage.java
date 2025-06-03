@@ -18,6 +18,7 @@ public class CPage extends JPanel {
     public static String p_viewStock = "ViewStock";
     public static String p_manage = "Manage";
     public static String p_inOut = "InOut";
+    public static String p_about = "About";
 
     //Constructor
     public CPage(){

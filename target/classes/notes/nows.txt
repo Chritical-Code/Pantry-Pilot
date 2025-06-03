@@ -1,7 +1,8 @@
 Pantry Pilot (remember to git)
 
 Now:
-+bugs
++problems
+-add an about section for icon credits
 
 Function:
 +view stock page
@@ -10,10 +11,12 @@ Function:
 
 +known problems
 -add auto refresh
--add an about section for icon credits
 -screen flashes blank when loading (might leave this)
+-add whole app to scrollpane... base?
 
 +add more pages
+-settings
+-notifications
 -graphs
 -orders
 -automation

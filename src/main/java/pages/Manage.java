@@ -202,8 +202,8 @@ public class Manage extends CPage {
         f_table.removeAll();
         JScrollPane scrollPane = createTable();
         f_table.add(scrollPane);
-        f_table.revalidate();
-        f_table.repaint();
+        //f_table.revalidate();
+        //f_table.repaint();
         revalidate();
         repaint();
     }

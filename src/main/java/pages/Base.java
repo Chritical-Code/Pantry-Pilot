@@ -34,25 +34,16 @@ public class Base {
         ViewStock viewStock = new ViewStock();
         InOut inOut = new InOut();
         Manage manage = new Manage();
+        About about = new About();
 
         //add pages to main panel
         mainPanel.add(home, CPage.p_home);
         mainPanel.add(viewStock, CPage.p_viewStock);
         mainPanel.add(manage, CPage.p_manage);
         mainPanel.add(inOut, CPage.p_inOut);
+        mainPanel.add(about, CPage.p_about);
 
         //set default page
         cardLayout.show(mainPanel, "Home");
-
-        /*
-        // Add a KeyListener to the panel
-        frame.setFocusable(true); // Make sure the panel can receive key events
-        frame.addKeyListener(new KeyAdapter() {
-            public void keyPressed(KeyEvent e) {
-                // This method is called when a key is pressed
-                System.out.println("Key Pressed: " + e.getKeyCode());
-            }
-        });
-        */
     }
 }
