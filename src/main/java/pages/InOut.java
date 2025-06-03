@@ -224,9 +224,12 @@ public class InOut extends CPage {
             return;
         }
 
-        //get id at row, send to delete function, refresh table
+        //get id at row, send to delete function
         int id = Integer.parseInt(table.getValueAt(row, 0).toString());
         Item.deleteItem(id);
-        refreshTable();
+
+        //remove item from table
+        DefaultTableModel tableModel = (DefaultTableModel) table.getModel();
+        tableModel.removeRow(row);
     }
 }

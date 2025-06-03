@@ -268,8 +268,9 @@ public class Manage extends CPage {
         //send the id to the delete function
         Product.deleteProduct(Integer.parseInt(id.getText()));
 
-        //refresh table
-        refreshTable();
+        //remove item from table
+        DefaultTableModel tableModel = (DefaultTableModel) table.getModel();
+        tableModel.removeRow(table.getSelectedRow());
 
         //clear selection
         clearData();

@@ -2,7 +2,6 @@ Pantry Pilot (remember to git)
 
 Now:
 +bugs
--deleting from i/o is disorienting, consider removing from  table instead of refreshing whole table
 
 Function:
 +view stock page
