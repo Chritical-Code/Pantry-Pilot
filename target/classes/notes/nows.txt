@@ -2,8 +2,6 @@ Pantry Pilot (remember to git)
 
 Now:
 +bugs
--need to refresh page/data when i open it
- .unloaded pages theory
 
 Function:
 +view stock page
@@ -14,6 +12,7 @@ Function:
 -add auto refresh
 -deleting from i/o is disorienting, consider removing from  table instead of refreshing whole table
 -add an about section for icon credits
+-screen flashes blank when loading (might leave this)
 
 +add more pages
 -graphs

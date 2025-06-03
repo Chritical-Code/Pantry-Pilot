@@ -2,9 +2,7 @@ Pantry Pilot (remember to git)
 
 Now:
 +bugs
--need to refresh page/data when i open it
- .unloaded pages theory
- -******so basically replace each page's constructor with an overloaded loadContent(), and see if that works****
+-deleting from i/o is disorienting, consider removing from  table instead of refreshing whole table
 
 Function:
 +view stock page
@@ -13,8 +11,8 @@ Function:
 
 +known problems
 -add auto refresh
--deleting from i/o is disorienting, consider removing from  table instead of refreshing whole table
 -add an about section for icon credits
+-screen flashes blank when loading (might leave this)
 
 +add more pages
 -graphs

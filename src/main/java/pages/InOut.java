@@ -11,16 +11,20 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.concurrent.CompletableFuture;
 
 public class InOut extends CPage {
     //Variables
     private CBoxFlow f_table;
     private CTable table;
+    CBoxFlow f_options;
     JComboBox<Product> productsCombo;
     JDateChooser dateChooser;
 
-    //Page contents
-    public InOut(){
+
+    //Page Content
+    @Override
+    public void loadContent(){
         //header
         add(new Header("I/O"));
 
@@ -29,16 +33,18 @@ public class InOut extends CPage {
 
         //flow: table
         f_table = new CBoxFlow();
+        General.sizomatic(f_table, 1200, 300);
         add(f_table);
-        f_table.add(createTable());
+        CompletableFuture.runAsync(this::refreshTable);
 
         //vertical glue
         add(Box.createVerticalGlue());
 
         //flow: options
-        CBoxFlow f_options = createOptionSection();
+        f_options = new CBoxFlow();
         General.sizomatic(f_options, 1200, 100);
         add(f_options);
+        CompletableFuture.runAsync(this::refreshOptionSection);
 
         //vertical glue
         add(Box.createVerticalGlue());
@@ -169,6 +175,16 @@ public class InOut extends CPage {
         f_table.add(scrollPane);
         f_table.revalidate();
         f_table.repaint();
+        revalidate();
+        repaint();
+    }
+
+    //refresh input section
+    private void refreshOptionSection(){
+        f_options.removeAll();
+        f_options.add(createOptionSection());
+        f_options.revalidate();
+        f_options.repaint();
         revalidate();
         repaint();
     }

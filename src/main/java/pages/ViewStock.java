@@ -8,6 +8,7 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.concurrent.CompletableFuture;
 
 public class ViewStock extends CPage {
     //Variables
@@ -26,8 +27,9 @@ public class ViewStock extends CPage {
 
         //flow: table
         f_table = new CBoxFlow();
+        General.sizomatic(f_table, 1200, 500);
         add(f_table);
-        f_table.add(createTable());
+        CompletableFuture.runAsync(this::refreshTable);
 
         //vertical glue
         add(Box.createVerticalGlue());

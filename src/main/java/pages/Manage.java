@@ -8,6 +8,7 @@ import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Objects;
+import java.util.concurrent.CompletableFuture;
 
 
 public class Manage extends CPage {
@@ -17,8 +18,9 @@ public class Manage extends CPage {
     CTextField id, brand, name, category;
 
 
-    //Page contents
-    public Manage(){
+    //Page Content
+    @Override
+    public void loadContent(){
         //header
         add(new Header("Manage"));
 
@@ -28,7 +30,8 @@ public class Manage extends CPage {
         //flow: table
         f_table = new CBoxFlow();
         add(f_table);
-        f_table.add(createTable());
+        General.sizomatic(f_table, 1200, 300);
+        CompletableFuture.runAsync(this::refreshTable);
 
         //vertical glue
         add(Box.createVerticalGlue());

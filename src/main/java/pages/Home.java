@@ -6,7 +6,16 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Home extends CPage {
+
+    //Constructor
     public Home(){
+        reset();
+        loadContent();
+    }
+
+    //Page Content
+    @Override
+    public void loadContent(){
         //header
         add(new Header("Pantry Pilot"));
 
