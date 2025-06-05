@@ -4,9 +4,9 @@ import gui.*;
 
 import javax.swing.*;
 import java.awt.*;
-import java.io.File;
 
 public class Header extends JPanel {
+    //header
     public Header(String inTitle){
         //general settings
         setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
@@ -60,5 +60,20 @@ public class Header extends JPanel {
 
         //gap
         add(Box.createRigidArea(new Dimension(20,0)));
+
+        //jwindow
+        notificationBox();
+    }
+
+    //notifications window
+    public void notificationBox(){
+        JLayeredPane layeredPane = CPage.frame.getLayeredPane();
+
+        JPanel floatingPanel = new JPanel();
+        floatingPanel.add(new JLabel("I'm a floating panel!"));
+        floatingPanel.setBounds(1000, 100, 200, 50); // Position manually
+        floatingPanel.setBackground(new java.awt.Color(200, 200, 255));
+
+        layeredPane.add(floatingPanel, JLayeredPane.POPUP_LAYER); // Add it to a higher layer
     }
 }

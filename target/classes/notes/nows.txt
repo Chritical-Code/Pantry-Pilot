@@ -1,8 +1,13 @@
 Pantry Pilot (remember to git)
 
 Now:
++notifications
+-get a little panel to pop up and down
+-get a little notification inside
+-classize it
+-get a little notification indicator
+
 +problems
--add an about section for icon credits
 
 Function:
 +view stock page

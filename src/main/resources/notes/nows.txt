@@ -1,6 +1,13 @@
 Pantry Pilot (remember to git)
 
 Now:
++notifications
+-get panel positioning correct
+-get panel to pop up and down
+-get a little notification inside
+-classize it
+-get a little notification indicator
+
 +problems
 
 Function:

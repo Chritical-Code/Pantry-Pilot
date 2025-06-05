@@ -4,9 +4,6 @@ import gui.CPage;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 
 //This is the base upon which pages are placed
 //Does not extend CPage
@@ -28,6 +25,7 @@ public class Base {
         //initialize page static variables
         CPage.cardLayout = cardLayout;
         CPage.mainPanel = mainPanel;
+        CPage.frame = frame;
 
         //Create each page
         Home home = new Home();

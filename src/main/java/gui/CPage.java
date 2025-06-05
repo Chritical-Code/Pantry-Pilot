@@ -4,7 +4,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ComponentEvent;
 import java.awt.event.ComponentListener;
-import java.lang.reflect.InvocationTargetException;
 
 //Each display page of this application is an extended CPage, which is an extended JPanel
 //Each page will be defined and formatted in its own class
@@ -13,6 +12,7 @@ public class CPage extends JPanel {
     //general
     public static CardLayout cardLayout;
     public static JPanel mainPanel;
+    public static JFrame frame;
     //page names
     public static String p_home = "Home";
     public static String p_viewStock = "ViewStock";
