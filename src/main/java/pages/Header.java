@@ -62,18 +62,71 @@ public class Header extends JPanel {
         add(Box.createRigidArea(new Dimension(20,0)));
 
         //jwindow
-        notificationBox();
+        //notificationBox();
+
+        //extra layout
+        //extraLayout();
     }
 
     //notifications window
     public void notificationBox(){
-        JLayeredPane layeredPane = CPage.frame.getLayeredPane();
+        //layer
+        JLayeredPane layer = CPage.frame.getLayeredPane();
+        //BoxLayout box = new BoxLayout(layer, BoxLayout.PAGE_AXIS);
+        //layer.setLayout(box);
 
-        JPanel floatingPanel = new JPanel();
-        floatingPanel.add(new JLabel("I'm a floating panel!"));
-        floatingPanel.setBounds(1000, 100, 200, 50); // Position manually
-        floatingPanel.setBackground(new java.awt.Color(200, 200, 255));
+        //horizontal glue
+        layer.add(Box.createHorizontalGlue(), JLayeredPane.PALETTE_LAYER);
 
-        layeredPane.add(floatingPanel, JLayeredPane.POPUP_LAYER); // Add it to a higher layer
+        //notif panel
+        JPanel notifBox = new JPanel();
+        notifBox.add(new JLabel("I'm a floating panel!"));
+        notifBox.setBackground(new java.awt.Color(200, 200, 255));
+        General.sizomatic(notifBox, 100, 100);
+        layer.add(notifBox, JLayeredPane.PALETTE_LAYER);
+    }
+
+    //test extra layout
+    public void extraLayout(){
+        JFrame frame = new JFrame("OverlayLayout Example");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(500, 500);
+
+        JPanel panel = new JPanel() {
+            @Override
+            public boolean isOptimizedDrawingEnabled() {
+                return false;
+            }
+        };
+        panel.setLayout(new OverlayLayout(panel));
+
+        JPanel bottomPanel = new JPanel();
+        bottomPanel.setBackground(Color.LIGHT_GRAY);
+        bottomPanel.setAlignmentX(0.5f);
+        bottomPanel.setAlignmentY(0.5f);
+        General.sizomatic(bottomPanel, 300, 300);
+        bottomPanel.add(new JLabel("Bottom Panel Text"));
+
+        JPanel topPanel = new JPanel();
+        topPanel.setBackground(Color.red);
+        topPanel.setAlignmentX(0.5f);
+        topPanel.setAlignmentY(0.5f);
+        General.sizomatic(topPanel, 200, 200);
+        topPanel.add(new JLabel("Top Panel Text"));
+
+        JPanel panel3 = new JPanel();
+        panel3.setBackground(Color.yellow);
+        panel3.setAlignmentX(0.5f);
+        panel3.setAlignmentY(0.5f);
+        General.sizomatic(panel3, 400, 100);
+        panel3.add(new JLabel("Panel 3 Text"));
+
+        panel.add(bottomPanel);
+        panel.add(topPanel, 0);
+        panel.add(panel3, 0);
+
+        frame.add(panel);
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
     }
 }

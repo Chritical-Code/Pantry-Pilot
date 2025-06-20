@@ -2,6 +2,7 @@ Pantry Pilot (remember to git)
 
 Now:
 +notifications
+-implement overlaylayout
 -get panel positioning correct
 -get panel to pop up and down
 -get a little notification inside
