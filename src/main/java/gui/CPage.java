@@ -15,8 +15,8 @@ public class CPage extends JPanel {
     public static JFrame frame;
     //page names
     public static String p_home = "Home";
-    public static String p_viewStock = "ViewStock";
-    public static String p_manage = "Manage";
+    public static String p_inventory = "Inventory";
+    public static String p_products = "Products";
     public static String p_inOut = "InOut";
     public static String p_about = "About";
 

@@ -2,7 +2,6 @@ package pages;
 
 import gui.*;
 import javax.swing.*;
-import java.awt.*;
 
 public class Home extends CPage {
 
@@ -29,9 +28,9 @@ public class Home extends CPage {
         f_row1.add(Box.createHorizontalGlue());
 
         //button: view stock
-        CButton b_ViewStock = new CButton("Stock");
-        b_ViewStock.addActionListener(e -> cardLayout.show(mainPanel, CPage.p_viewStock));
-        General.sizomatic(b_ViewStock, 100, 100);
+        CButton b_ViewStock = new CButton("Inventory");
+        b_ViewStock.addActionListener(e -> cardLayout.show(mainPanel, CPage.p_inventory));
+        General.sizomatic(b_ViewStock, 150, 100);
         f_row1.add(b_ViewStock);
 
         //horizontal glue
@@ -40,16 +39,16 @@ public class Home extends CPage {
         //button: I/O
         CButton b_InOut = new CButton("I/O");
         b_InOut.addActionListener(e -> cardLayout.show(mainPanel, CPage.p_inOut));
-        General.sizomatic(b_InOut, 100, 100);
+        General.sizomatic(b_InOut, 150, 100);
         f_row1.add(b_InOut);
 
         //horizontal glue
         f_row1.add(Box.createHorizontalGlue());
 
         //button: manage
-        CButton b_Manage = new CButton("Manage");
-        b_Manage.addActionListener(e -> cardLayout.show(mainPanel, CPage.p_manage));
-        General.sizomatic(b_Manage, 100, 100);
+        CButton b_Manage = new CButton("Products");
+        b_Manage.addActionListener(e -> cardLayout.show(mainPanel, CPage.p_products));
+        General.sizomatic(b_Manage, 150, 100);
         f_row1.add(b_Manage);
 
         //horizontal glue

@@ -29,15 +29,15 @@ public class Base {
 
         //Create each page
         Home home = new Home();
-        ViewStock viewStock = new ViewStock();
+        Inventory inventory = new Inventory();
         InOut inOut = new InOut();
-        Manage manage = new Manage();
+        Products products = new Products();
         About about = new About();
 
         //add pages to main panel
         mainPanel.add(home, CPage.p_home);
-        mainPanel.add(viewStock, CPage.p_viewStock);
-        mainPanel.add(manage, CPage.p_manage);
+        mainPanel.add(inventory, CPage.p_inventory);
+        mainPanel.add(products, CPage.p_products);
         mainPanel.add(inOut, CPage.p_inOut);
         mainPanel.add(about, CPage.p_about);
 

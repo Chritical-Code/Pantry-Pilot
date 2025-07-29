@@ -5,12 +5,11 @@ import model.*;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.concurrent.CompletableFuture;
 
-public class ViewStock extends CPage {
+public class Inventory extends CPage {
     //Variables
     private CBoxFlow f_table;
     private CTable table;
@@ -20,7 +19,7 @@ public class ViewStock extends CPage {
     @Override
     public void loadContent() {
         //header
-        add(new Header("Stock"));
+        add(new Header("View Inventory"));
 
         //vertical glue
         add(Box.createVerticalGlue());

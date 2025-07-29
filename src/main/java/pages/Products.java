@@ -11,7 +11,7 @@ import java.util.Objects;
 import java.util.concurrent.CompletableFuture;
 
 
-public class Manage extends CPage {
+public class Products extends CPage {
     //Variables
     private CBoxFlow f_table;
     private CTable table;
@@ -22,7 +22,7 @@ public class Manage extends CPage {
     @Override
     public void loadContent(){
         //header
-        add(new Header("Manage"));
+        add(new Header("Manage Products"));
 
         //vertical glue
         add(Box.createVerticalGlue());

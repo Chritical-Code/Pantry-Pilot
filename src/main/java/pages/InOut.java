@@ -26,7 +26,7 @@ public class InOut extends CPage {
     @Override
     public void loadContent(){
         //header
-        add(new Header("I/O"));
+        add(new Header("Items In/Out"));
 
         //vertical glue
         add(Box.createVerticalGlue());
