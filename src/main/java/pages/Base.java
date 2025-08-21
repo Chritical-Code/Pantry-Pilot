@@ -17,7 +17,7 @@ public class Base {
         JFrame frame = new JFrame();
         frame.add(mainPanel);
         frame.setTitle("Pantry Pilot");
-        frame.setSize(1280, 720);
+        frame.setSize(1600, 931);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
