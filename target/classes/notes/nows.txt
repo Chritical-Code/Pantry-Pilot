@@ -1,6 +1,9 @@
 Pantry Pilot (remember to git)
 
 Now:
++Fix fonts (header)
+
+
 +notifications
 -implement overlaylayout
 -get panel positioning correct
