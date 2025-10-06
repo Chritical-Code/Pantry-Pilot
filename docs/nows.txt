@@ -19,6 +19,7 @@ Function:
 +view stock page
 -filters and data interpretation
 -search bar
++database automation (change migration, initialization)
 
 +known problems
 -add auto refresh
