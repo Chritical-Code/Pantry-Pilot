@@ -4,10 +4,10 @@
 
 ## Structure
 
-Everything begins at the starting point of the project, the Main file`src/main/java/Main.java`.
+Everything begins at the starting point of the project, the Main file `src/main/java/Main.java`.
 
 From there, we initialize the user interface, starting with the pages of the application.
-All pages are instantiaed in the Base class. The Base class creates the initial JFrame (the main application window),
+All pages are instantiated in the Base class. The Base class creates the initial JFrame (the main application window),
 and a CardLayout to switch between each page.
 
 Each page in this application is an instance of CPage (an extended JPanel). Each page is just a sequence
