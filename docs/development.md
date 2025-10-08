@@ -4,11 +4,13 @@
 
 ## Structure
 
+The following is a summary of how the project is structured. It should help with review or further development.
+
 ### Main
 
 `src/main/java/Main.java`
 
-Main is the starting point of the application. It instantiates the base of the application.
+Main is the starting point, where the base of the application is instantiated.
 
 ### Base
 
