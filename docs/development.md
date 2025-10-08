@@ -1,4 +1,4 @@
-******# Development
+# Development
 
 #### | [Overview](../README.md) | Development |
 
@@ -47,4 +47,4 @@ Models speak to the database manager.
 
 `db.DBManager`
 
-The database manager speaks directly to the database. It acts as an intermediary between the models and the database.******
+The database manager speaks directly to the database. It acts as an intermediary between the models and the database.
