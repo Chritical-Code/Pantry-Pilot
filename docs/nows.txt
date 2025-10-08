@@ -1,6 +1,11 @@
 Pantry Pilot (remember to git)
 
 Now:
++readme
+-redoing disorganized development page
+https://www.markdownguide.org/basic-syntax/#links
+
+
 +Fix fonts (header)
 
 

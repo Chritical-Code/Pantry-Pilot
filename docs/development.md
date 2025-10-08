@@ -1,30 +1,50 @@
-# Development
+******# Development
 
 #### | [Overview](../README.md) | Development |
 
 ## Structure
 
-Everything begins at the starting point of the project, the Main file `src/main/java/Main.java`.
+### Main
 
-From there, we initialize the user interface, starting with the pages of the application.
-All pages are instantiated in the Base class. The Base class creates the initial JFrame (the main application window),
-and a CardLayout to switch between each page.
+`src/main/java/Main.java`
 
-Each page in this application is an instance of CPage (an extended JPanel). Each page is just a sequence
-of various UI elements, as well as some extra functions where needed. Pages usually include the Header at the top.
-Page content is placed inside of loadContent(), which loads when the page is opened.
-Pages are reset() when opened and closed.
+Main is the starting point of the application. It instantiates the base of the application.
 
-(Important note: not every class inside of "pages" is an actual page, some exceptions being the Header and Base.
-This should probably be changed to minimize confusion.)
+### Base
 
-GUI elements can include basic Swing classes or extended versions (for customization).
-Customized ones are labeled with a C instead of a J. The gui.General class is useful for standardized things like
-color, font, and resizing.
+`pages.Base`
 
-Finally, the database. Basically, the models speak to the database manager, the manager speaks to the database.
-Pages can simply access the model to read and write data. Nice and easy. Just make sure any new models line up
-nicely with the database.
+This is the base upon which all application pages sit. It includes a JFrame (the main application window)
+and a CardLayout (used for switching pages.)
 
-And that's it for structure. Create CPages, instantiate them in Base, navigate to them in Home,
-include customizable GUI elements, and speak to the database through models.
+### Pages
+
+`pages.*`
+
+Pages are the bulk of the application. Everything the user can see and do is on a page. 
+Each page is its own class with GUI and functionality defined within. Pages are extended CPages, which are extended JPanels.
+
+`pages.Header`
+
+The header is used for basic navigation. Most pages will include the header at the top.
+
+### GUI
+
+`gui.*`
+
+These are extended and customized versions of regular Swing components.
+
+`gui.General`
+
+This is a central hub for GUI elements. Colors, fonts, and resizing functions are defined here.
+
+### Database
+
+`model.*`
+
+A model represents a table in the database. Pages can use them to easily retrieve and interact with data.
+Models speak to the database manager.
+
+`db.DBManager`
+
+The database manager speaks directly to the database. It acts as an intermediary between the models and the database.******
